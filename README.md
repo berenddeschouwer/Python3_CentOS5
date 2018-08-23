@@ -12,6 +12,7 @@ The following source based componentes  are used:
 
 Build Process
 ============
+```bash
 
 # Start a CentOS5 docker container
 docker run -it astj/centos5-vault bash
@@ -19,8 +20,6 @@ docker run -it astj/centos5-vault bash
 # Install all the packages needed by the build process
 yum install -y unzip wget patch \
     gcc zlib-devel python-setuptools readline-devel make bzip2-devel perl
-
-
 
 # Install our custom libffi
 wget ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
@@ -68,7 +67,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/joaompinto/Python3
 wget --no-check-certificate https://raw.githubusercontent.com/joaompinto/Python3_CentOS5/master/scripts/pip -O /opt/python3.7/bin/pip
 chmod 755 /opt/python3.7/bin/*
 tar czvf /tmp/python3.7-centos5.tar.gz -C /opt /opt/python3.7/
-exit
 
 # From the docker host
 docker cp  $CONTAINER_ID:/tmp/python3.7-centos5.tar.gz  /tmp
+```
