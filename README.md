@@ -1,8 +1,17 @@
-# Python3.7.0_CentOS5
+# Python3.7_CentOS5
 
-Python_Build
+Unfortunately there are still some CentOS/RHEL5 systems running around, the repository provides the instructions and a binary tar with Python 3.7.0, compiled for CentOS5.
+
+The following source based componentes  are used:
+* Docker image: astj/centos5-vault
+* ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
+* https://www.openssl.org/source/openssl-1.0.2p.tar.gz
+* https://sqlite.org/2018/sqlite-autoconf-3240000.tar.gz
+* https://npm.taobao.org/mirrors/python/3.7.0/Python-3.7.0.tgz
+
+
+Build Process
 ============
-
 
 # Start a CentOS5 docker container
 docker run -it astj/centos5-vault bash
@@ -55,14 +64,11 @@ make altinstall
 
 find /opt/python3.7/  -name "*.pyc" -delete
 find /opt/python3.7/ -name "*.pyo" -delete
-wget  https://raw.githubusercontent.com/joaompinto/Python3_CentOS5/scripts/python -O /opt/python3.7/bin
+wget --no-check-certificate https://raw.githubusercontent.com/joaompinto/Python3_CentOS5/master/scripts/python -O /opt/python3.7/bin/python
+wget --no-check-certificate https://raw.githubusercontent.com/joaompinto/Python3_CentOS5/master/scripts/pip -O /opt/python3.7/bin/pip
+chmod 755 /opt/python3.7/bin/*
 tar czvf /tmp/python3.7-centos5.tar.gz -C /opt /opt/python3.7/
 exit
 
 # From the docker host
-ls -1 /tmp/python2.17_mdatapipe/* | xargs -I% -n1 docker cp % $CONTAINER_ID:/tmp
-docker cp  $CONTAINER_ID:/tmp/python3.7-centos5.tar.gz .tar.gz /tmp
-
-# ToDo
-Move libffi to the ld_lib_path
-
+docker cp  $CONTAINER_ID:/tmp/python3.7-centos5.tar.gz  /tmp
