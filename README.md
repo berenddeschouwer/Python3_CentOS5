@@ -43,7 +43,7 @@ make -j4 && make install
 cd ..
 
 # Build a recent sqlite version
-wget --no-check-certificate  https://sqlite.org/2018/sqlite-autoconf-3240000.tar.gz
+wget --no-check-certificate  http://sqlite.org/2018/sqlite-autoconf-3240000.tar.gz
 tar xzvf sqlite*.tar.gz
 cd sqlite*
 ./configure --prefix=/opt/python3.7
