@@ -25,6 +25,9 @@ sed -e 's+http://vault.centos.org/5.11/+http://archive.kernel.org/centos-vault/5
 yum install -y unzip wget patch \
     gcc zlib-devel python-setuptools readline-devel make bzip2-devel perl
 
+# Remove stuff this docker included that we don't want
+yum remove libffi ruby193 libffi-devel
+
 # Install our custom libffi
 wget ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 tar xzvf libffi*
