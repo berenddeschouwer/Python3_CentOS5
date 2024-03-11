@@ -63,7 +63,7 @@ LD_RUN_PATH=/opt/python3.7/lib ./configure LDFLAGS="-L/opt/python3.7/lib" CPPFLA
     -prefix=/opt/python3.7/
 wget --no-check-certificate https://raw.githubusercontent.com/joaompinto/Python3_CentOS5/master/python3_local_ffi.patch
 patch -p0 < python3_local_ffi.patch
-LD_RUN_PATH=/opt/python3.7/lib:/opt/python3.7/lib64 make -j4
+LD_RUN_PATH=/opt/python3.7/lib make -j4
 make altinstall
 
 find /opt/python3.7/  -name "*.pyc" -delete
