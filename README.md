@@ -52,6 +52,7 @@ cd ..
 
 # Get Python from a mirror which is not strict about the SSL version requirement
 wget https://npm.taobao.org/mirrors/python/3.7.0/Python-3.7.0.tgz
+# md5sum from python.org: 41b6595deb4147a1ed517a7d9a580271
 
 # Built Python using the local SQLite and SSL versions
 tar xzvf Python-*
