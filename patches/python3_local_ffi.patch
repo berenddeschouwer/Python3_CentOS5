@@ -5,7 +5,7 @@
  ##########################################################################
  
 -LIBFFI_INCLUDEDIR=	
-+LIBFFI_INCLUDEDIR= /opt/python37/lib/libffi-3.2.1/include
++LIBFFI_INCLUDEDIR= /opt/python3.7/lib/libffi-3.2.1/include
  
  ##########################################################################
  # Parser
