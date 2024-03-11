@@ -15,7 +15,11 @@ Build Process
 ```bash
 
 # Start a CentOS5 docker container
-docker run -it astj/centos5-vault bash
+docker run -it themattrix/centos5-vault-i386 bash
+
+# fix repos
+cd /etc/yum.repos.d/
+sed -e 's+http://vault.centos.org/5.11/+http://archive.kernel.org/centos-vault/5.11/+' -i *
 
 # Install all the packages needed by the build process
 yum install -y unzip wget patch \
